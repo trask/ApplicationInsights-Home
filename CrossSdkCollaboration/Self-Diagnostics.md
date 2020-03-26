@@ -69,7 +69,7 @@ The following values are optional. If any value cannot be parsed, the default va
     - Default Value: "%TEMP%"
     - If the provided value directory does not exist, the SDK needs to try to create it.
     - If the provided value is illegal for any reason, the SDK will fall back to the default value "%TEMP%".
-- [Optional] `MaxSize`
+- [Optional] `MaxSizeMB`
     - Value: Integer specifying max size in megabytes. A value of '0' will be interpreted as no limit.
     - Default: 0.
     - When a max size is exceeded, the SDK should close the file and start a new file.
@@ -85,7 +85,7 @@ The following values are optional. If any value cannot be parsed, the default va
 
 This format is proposed because multiple SDKs may have access to the same environment variable. This format will help users identify the program or process writing to this file.
 Both the process name and id are required because a single process may host many applications (for example: IIS's process is w3wp, but it can host multiple web applications on unique process ids).
-When a file exceeds the maxsize, the file will be closed and a new file will be created with a new timestamp.
+When a file exceeds the max size, the file will be closed and a new file will be created with a new timestamp.
 
 ##### File Contents
 
@@ -100,7 +100,7 @@ The file header should include
 
 
 ##### Full Example
-`Destination=File;Directory=C:/Temp;Level=verbose;MaxSize=50`
+`Destination=File;Directory=C:/Temp;Level=verbose;MaxSizeMB=50`
 
 ##### Minimum Valid Example
 `Destination=File`
